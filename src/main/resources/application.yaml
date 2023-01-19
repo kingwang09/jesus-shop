@@ -10,12 +10,18 @@ spring:
         hbm2ddl.auto: create
     hibernate:
       ddl-auto: create
-  daniel:
-    datasource:
+  datasource:
+    hikari:
       driver-class-name: org.h2.Driver
-      jdbc-url: jdbc:h2:mem:daniel
+      jdbc-url: jdbc:h2:mem:jesus_shop
       username: sa
-      password:
   h2:
     console:
       enabled: true
+logging:
+  level:
+    org.jesus.shop: DEBUG
+    com.zaxxer.hikari: DEBUG
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
