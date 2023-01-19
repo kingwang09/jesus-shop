@@ -19,4 +19,10 @@ public class User {
     private String userName;
 
     private int age;
+
+    public void changeAge(int age){
+        if(age >= 0){
+            this.age = age;
+        }
+    }
 }
