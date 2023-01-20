@@ -10,13 +10,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="ShopUser")
+@Table(name="ShopUser", uniqueConstraints = {
+        @UniqueConstraint(name = "ShopUser_Uk_Email", columnNames = {"email"})
+})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String email;
 
     private int age;
