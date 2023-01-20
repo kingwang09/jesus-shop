@@ -7,7 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.NoSuchElementException;
 
 @Slf4j
 @SpringBootTest
@@ -48,14 +49,21 @@ public class UserRepositoryTest {
         Assertions.assertNotNull(loveUser.getId());
     }
 
-    @Transactional
     @Test
     public void 사용자_변경(){
-        log.debug("user1 save: {}", jesusUser);
         userRepository.save(jesusUser);
-        log.debug("user1 after save: {}", jesusUser);
+        log.debug("user1 save: {}", jesusUser);
 
         jesusUser.changeAge(33);
+        userRepository.save(jesusUser);
         log.debug("user1 after change age: {}", jesusUser);
+    }
+
+    @Test
+    //@Transactional//만약 같은 Transactional 에  묶여 있다면 같은 객체가 된다.
+    public void 영속성_테스트(){
+        jesusUser = userRepository.save(jesusUser);
+        User user = userRepository.findById(jesusUser.getId()).orElseThrow(NoSuchElementException::new);
+        Assertions.assertEquals(false, user.equals(jesusUser));
     }
 }

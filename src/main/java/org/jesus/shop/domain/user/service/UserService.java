@@ -26,8 +26,9 @@ public class UserService {
 
     @Transactional
     public User changeUserAge(User user, int age){
+        user = userRepository.findById(user.getId()).orElseThrow(NoSuchElementException::new);//select쿼리가 무조건 나가게 된다.
         user.changeAge(age);
-        return userRepository.save(user);
+        return user;
     }
 
     public User add(User user){
