@@ -1,8 +1,10 @@
 package org.jesus.shop.domain.user.entity;
 
 import lombok.*;
+import org.jesus.shop.domain.user.constaint.Role;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @ToString
 @Getter
@@ -21,7 +23,12 @@ public class User {
     @Column(nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
     private int age;
+
+    private LocalDateTime registeredAt;
 
     public void changeAge(int age){
         if(age >= 0){
