@@ -1,25 +1,23 @@
-package org.jesus.shop.domain.product.entity;
+package org.jesus.shop.domain.delivery.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.jesus.shop.domain.delivery.constants.DeliveryStatus;
 
 import javax.persistence.*;
-
 
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="shop_product")
-public class Product {
+public class Delivery {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private int price;
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
 }

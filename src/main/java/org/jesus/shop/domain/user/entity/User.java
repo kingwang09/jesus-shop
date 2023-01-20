@@ -1,7 +1,7 @@
 package org.jesus.shop.domain.user.entity;
 
 import lombok.*;
-import org.jesus.shop.domain.user.constaint.Role;
+import org.jesus.shop.domain.user.constant.Role;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
