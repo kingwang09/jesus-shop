@@ -17,7 +17,7 @@ public class UserServiceTest {
     private UserService userService;
 
     private User jesusUser = User.builder()
-            .userName("jesus@heaven.com")
+            .email("jesus@heaven.com")
             .age(30)
             .build();
 
@@ -47,7 +47,7 @@ public class UserServiceTest {
     public void 사용자_나이_신규변경(){
         //처음 생성하는 객체인 경우, insert쿼리만 발생
         User newUser = userService.changeUserAge(User.builder()
-                .userName("loveAndPeace@knou.ac.kr")
+                .email("loveAndPeace@knou.ac.kr")
                 .age(0)
                 .build(), 65);//객체로 조회할 때에도 이미 준영속 상태이기 때문에 select쿼리가 나가게 되고 새로운 영속성 객체가 조회되서 수정된다.
         Assertions.assertEquals(65, newUser.getAge());

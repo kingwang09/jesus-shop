@@ -12,9 +12,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="ShopUser", uniqueConstraints = {
-        @UniqueConstraint(name = "ShopUser_Uk_Email", columnNames = {"email"})
-})
+@Table(
+        name="shop_user",
+        uniqueConstraints = {
+            @UniqueConstraint(name = "shop_user_uk_email", columnNames = {"email"}),
+        },
+        indexes = {
+            @Index(name = "shop_user_email_idx", columnList = "email")
+        }
+)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

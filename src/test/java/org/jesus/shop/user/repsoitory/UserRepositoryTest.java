@@ -18,12 +18,12 @@ public class UserRepositoryTest {
     private UserRepository userRepository;
 
     private User jesusUser = User.builder()
-            .userName("jesus@heaven.com")
+            .email("jesus@heaven.com")
             .age(30)
             .build();
 
     private User loveUser = User.builder()
-            .userName("loveandpeace@heaven.com")
+            .email("loveandpeace@heaven.com")
             .age(60)
             .build();
 
@@ -42,10 +42,10 @@ public class UserRepositoryTest {
         log.debug("user2 & love&peace: {}", loveUser);
 
         //then
-        Assertions.assertEquals("jesus@heaven.com", jesusUser.getUserName());
+        Assertions.assertEquals("jesus@heaven.com", jesusUser.getEmail());
         Assertions.assertNotNull(jesusUser.getId());
 
-        Assertions.assertEquals("loveandpeace@heaven.com", loveUser.getUserName());
+        Assertions.assertEquals("loveandpeace@heaven.com", loveUser.getEmail());
         Assertions.assertNotNull(loveUser.getId());
     }
 
