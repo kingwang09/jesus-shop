@@ -20,7 +20,7 @@ public class OrderItem {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="order_id")
+    @JoinColumn(name="order_id", foreignKey = @ForeignKey(name = "shop_order_item_orderId_fk"))
     private Order order;
 
     @ManyToOne

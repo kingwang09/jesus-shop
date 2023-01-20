@@ -26,6 +26,6 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name="delivery_id")
+    @JoinColumn(name="delivery_id", foreignKey = @ForeignKey(name = "shop_order_deliveryId_fk"))
     private Delivery delivery;
 }

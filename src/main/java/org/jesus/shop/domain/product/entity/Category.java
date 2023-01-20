@@ -1,10 +1,9 @@
-package org.jesus.shop.domain.delivery.entity;
+package org.jesus.shop.domain.product.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.jesus.shop.domain.delivery.constants.DeliveryStatus;
 
 import javax.persistence.*;
 
@@ -13,12 +12,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="shop_delivery")
-public class Delivery {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private DeliveryStatus status;
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name="parent_id", foreignKey = @ForeignKey(name="category_parentId_fk"))
+    private Category parent;
 }
