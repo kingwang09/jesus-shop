@@ -22,4 +22,6 @@ public class Product {
     private String name;
 
     private int price;
+
+    private int stockCount;//임시로 DB로 사용
 }
