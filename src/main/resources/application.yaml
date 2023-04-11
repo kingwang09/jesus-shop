@@ -18,6 +18,8 @@ spring:
   h2:
     console:
       enabled: true
+test:
+  keywords: 개선,완화,감소,효과,억제,향상,회복,효능,증강
 logging:
   level:
     org.jesus.shop: DEBUG
@@ -25,3 +27,4 @@ logging:
     org.springframework: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type: TRACE
+
